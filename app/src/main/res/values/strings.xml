@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">PostList</string>
+
+    <!-- Hata Mesajları -->
+    <string name="error_unknown">Bilinmeyen bir hata oluştu</string>
+    <string name="error_network">Bağlantı hatası. Lütfen internet bağlantınızı kontrol edin</string>
+    <string name="error_timeout">İstek zaman aşımına uğradı. Lütfen tekrar deneyin</string>
 </resources>
