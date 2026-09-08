@@ -78,6 +78,9 @@ dependencies {
     // RecyclerView
     implementation(libs.androidx.recyclerview)
 
+    // Lottie
+    implementation(libs.lottie)
+
     // Room — Local Database
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)

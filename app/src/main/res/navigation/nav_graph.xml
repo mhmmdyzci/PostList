@@ -2,7 +2,26 @@
 
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
 
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.postlist.presentation.splash.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_postListFragment"
+            app:destination="@id/postListFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/postListFragment"
+        android:name="com.example.postlist.presentation.postList.PostListFragment"
+        android:label="fragment_postList"
+        tools:layout="@layout/fragment_post_list" >
+    </fragment>
 
 </navigation>
