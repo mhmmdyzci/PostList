@@ -25,4 +25,8 @@ class PostRepositoryImpl @Inject constructor(
         postDao.clearPosts()
         postDao.insertPosts(posts.map { it.toEntity() })
     }
+
+    override suspend fun deletePost(postId: Int) {
+        postDao.deletePost(postId)
+    }
 }
