@@ -14,7 +14,13 @@
 
     <style name="TextAppearance.PostList.ScreenHeader" parent="TextAppearance.Material3.TitleLarge">
         <item name="android:textColor">@color/text_primary</item>
-        <item name="android:textSize">22sp</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.PostList.DetailHeader" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 </resources>

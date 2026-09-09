@@ -3,6 +3,7 @@ package com.example.postlist.presentation.base
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.FrameLayout
+import androidx.core.content.ContextCompat
 import androidx.core.content.withStyledAttributes
 import androidx.appcompat.content.res.AppCompatResources
 import com.example.postlist.R
@@ -30,6 +31,9 @@ class ScreenHeader @JvmOverloads constructor(
         ) {
 
             binding.toolbar.title = getText(R.styleable.ScreenHeader_headerTitle)
+            getResourceId(R.styleable.ScreenHeader_headerTitleTextAppearance, 0)
+                .takeIf { it != 0 }
+                ?.let { binding.toolbar.setTitleTextAppearance(context, it) }
             setBackButtonVisible(
                 getBoolean(R.styleable.ScreenHeader_showBackButton, false)
             )
@@ -43,7 +47,9 @@ class ScreenHeader @JvmOverloads constructor(
 
     fun setBackButtonVisible(visible: Boolean) {
         binding.toolbar.navigationIcon = if (visible) {
-            AppCompatResources.getDrawable(context, R.drawable.ic_arrow_back)
+            AppCompatResources.getDrawable(context, R.drawable.ic_arrow_back)?.mutate()?.apply {
+                setTint(ContextCompat.getColor(context, R.color.white))
+            }
         } else {
             null
         }

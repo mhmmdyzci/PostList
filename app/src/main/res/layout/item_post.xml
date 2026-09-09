@@ -1,35 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:background="@color/surface"
-    android:paddingStart="20dp"
-    android:paddingTop="14dp"
-    android:paddingEnd="20dp">
+    android:layout_marginBottom="10dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardBackgroundColor="@color/surface"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
+    app:strokeColor="@color/card_stroke"
+    app:strokeWidth="1dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:minHeight="76dp"
+        android:minHeight="98dp"
         android:orientation="horizontal"
-        android:paddingBottom="14dp">
+        android:padding="17dp">
 
         <ImageView
             android:id="@+id/postImage"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            tools:src="@drawable/ic_launcher_background"
+            android:background="@drawable/bg_post_image"
             android:contentDescription="@string/post_image_content_description"
-            android:scaleType="centerCrop" />
+            android:padding="1dp"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/ic_launcher_background" />
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
+            android:layout_marginStart="16dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -39,29 +46,22 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="1"
-                tools:text="@string/fab_transformation_scrim_behavior"
                 android:textColor="@color/text_primary"
-                android:textSize="17sp"
-                android:textStyle="bold" />
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="sunt aut facere repellat provident oc..." />
 
             <TextView
                 android:id="@+id/postDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                tools:text="@string/fab_transformation_scrim_behavior"
+                android:layout_marginTop="4dp"
                 android:ellipsize="end"
-                android:maxLines="2"
+                android:maxLines="3"
                 android:textColor="@color/post_description"
-                android:textSize="15sp"
-                android:lineSpacingExtra="2dp" />
+                android:textSize="13sp"
+                android:lineSpacingExtra="2dp"
+                tools:text="quia et suscipit suscipit recusandae consequuntur..." />
         </LinearLayout>
     </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginStart="78dp"
-        android:background="@color/post_divider" />
-
-</LinearLayout>
+</com.google.android.material.card.MaterialCardView>
