@@ -20,13 +20,23 @@ class PostRepositoryImpl @Inject constructor(
             entities.map { it.toDomain() }
         }
 
+    override suspend fun getPost(postId: Int): Post? =
+        postDao.getPost(postId)?.toDomain()
+
     override suspend fun refreshPosts() {
         val posts = apiService.getPosts().map { it.toDomain() }
-        postDao.clearPosts()
-        postDao.insertPosts(posts.map { it.toEntity() })
+        postDao.syncPosts(posts.map { it.toEntity() })
     }
 
     override suspend fun deletePost(postId: Int) {
         postDao.deletePost(postId)
+    }
+
+    override suspend fun updatePost(post: Post) {
+        postDao.updatePost(
+            postId = post.id,
+            title = post.title,
+            body = post.body
+        )
     }
 }

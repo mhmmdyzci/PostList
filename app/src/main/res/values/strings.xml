@@ -12,4 +12,11 @@
     <string name="retry">Tekrar dene</string>
     <string name="post_list_title">Postlar</string>
     <string name="navigate_back">Geri</string>
+    <string name="post_detail_title">Post Detayı</string>
+    <string name="post_detail_title_hint">Başlık</string>
+    <string name="post_detail_body_hint">Açıklama</string>
+    <string name="post_detail_save">Güncelle</string>
+    <string name="post_detail_saving">Güncelleniyor...</string>
+    <string name="post_detail_title_required">Başlık boş bırakılamaz</string>
+    <string name="post_detail_body_required">Açıklama boş bırakılamaz</string>
 </resources>
