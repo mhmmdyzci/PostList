@@ -14,5 +14,7 @@ data class PostEntity(
     val id: Int,
     val userId: Int,
     val title: String,
-    val body: String
+    val body: String,
+    val isLocallyModified: Boolean = false,
+    val isDeleted: Boolean = false
 )

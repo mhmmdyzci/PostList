@@ -22,6 +22,19 @@
         android:name="com.example.postlist.presentation.postList.PostListFragment"
         android:label="fragment_postList"
         tools:layout="@layout/fragment_post_list" >
+        <action
+            android:id="@+id/action_postListFragment_to_postDetailFragment"
+            app:destination="@id/postDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/postDetailFragment"
+        android:name="com.example.postlist.presentation.postDetail.PostDetailFragment"
+        android:label="fragment_postDetail"
+        tools:layout="@layout/fragment_post_detail">
+        <argument
+            android:name="postId"
+            app:argType="integer" />
     </fragment>
 
 </navigation>

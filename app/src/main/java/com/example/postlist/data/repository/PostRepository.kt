@@ -8,7 +8,11 @@ interface PostRepository {
 
     fun observePosts(): Flow<List<Post>>
 
+    suspend fun getPost(postId: Int): Post?
+
     suspend fun refreshPosts()
 
     suspend fun deletePost(postId: Int)
+
+    suspend fun updatePost(post: Post)
 }
