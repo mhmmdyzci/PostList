@@ -6,4 +6,10 @@
     </style>
 
     <style name="Theme.PostList" parent="Base.Theme.PostList" />
+
+    <style name="TextAppearance.PostList.ScreenHeader" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

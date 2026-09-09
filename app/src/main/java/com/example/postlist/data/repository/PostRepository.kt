@@ -9,4 +9,6 @@ interface PostRepository {
     fun observePosts(): Flow<List<Post>>
 
     suspend fun refreshPosts()
+
+    suspend fun deletePost(postId: Int)
 }
