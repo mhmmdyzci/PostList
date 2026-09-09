@@ -81,6 +81,7 @@ class PostDetailViewModel @Inject constructor(
         val currentPost = _uiState.value.post ?: return
         _uiState.update {
             it.copy(
+                post = currentPost.copy(title = normalizedTitle, body = normalizedBody),
                 isSaving = true,
                 validationError = null,
                 errorMessage = null

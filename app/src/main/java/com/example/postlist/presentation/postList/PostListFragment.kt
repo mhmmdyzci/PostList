@@ -58,6 +58,7 @@ class PostListFragment : BaseFragment<FragmentPostListBinding>(FragmentPostListB
 
     private fun setupActions() {
         binding.retryButton.setOnClickListener { viewModel.refresh() }
+        binding.swipeRefreshLayout.setOnRefreshListener { viewModel.refresh() }
     }
 
     private fun collectUiState() {
@@ -76,6 +77,7 @@ class PostListFragment : BaseFragment<FragmentPostListBinding>(FragmentPostListB
         binding.apply {
             postRecyclerView.isVisible = state.posts.isNotEmpty()
             loadingView.isVisible = state.isLoading
+            swipeRefreshLayout.isRefreshing = state.isRefreshing && state.posts.isNotEmpty()
             errorView.isVisible = state.errorMessage != null && state.posts.isEmpty()
             emptyView.isVisible = !state.isLoading && state.errorMessage == null && state.posts.isEmpty()
             state.errorMessage?.let { errorMessage.text = it }

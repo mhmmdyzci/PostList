@@ -77,6 +77,7 @@ dependencies {
 
     // RecyclerView
     implementation(libs.androidx.recyclerview)
+    implementation(libs.androidx.swiperefreshlayout)
 
     // Lottie
     implementation(libs.lottie)
