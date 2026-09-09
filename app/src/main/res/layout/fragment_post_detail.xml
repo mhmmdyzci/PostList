@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,8 +12,9 @@
         android:id="@+id/screenHeader"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/surface"
+        android:background="@color/screen_background"
         app:headerTitle="@string/post_detail_title"
+        app:headerTitleTextAppearance="@style/TextAppearance.PostList.DetailHeader"
         app:showBackButton="true" />
 
     <FrameLayout
@@ -20,12 +22,18 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
         <ScrollView
             android:id="@+id/detailContent"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:fillViewport="true"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -49,6 +57,7 @@
                         android:layout_height="wrap_content"
                         android:inputType="textCapSentences"
                         android:maxLines="2"
+                        android:minHeight="56dp"
                         android:textColor="@color/text_primary"
                         android:textColorHint="@color/post_description" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -67,20 +76,32 @@
                         android:layout_height="wrap_content"
                         android:gravity="top|start"
                         android:inputType="textCapSentences|textMultiLine"
+                        android:minHeight="360dp"
                         android:minLines="8"
                         android:textColor="@color/text_primary"
                         android:textColorHint="@color/post_description" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/saveButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:text="@string/post_detail_save" />
-
             </LinearLayout>
         </ScrollView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/saveButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/bg_update_button"
+            android:minHeight="56dp"
+            android:text="@string/post_detail_save"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:backgroundTint="@null"
+            app:cornerRadius="14dp" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/errorMessage"

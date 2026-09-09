@@ -2,5 +2,6 @@
     <declare-styleable name="ScreenHeader">
         <attr name="headerTitle" format="string" />
         <attr name="showBackButton" format="boolean" />
+        <attr name="headerTitleTextAppearance" format="reference" />
     </declare-styleable>
 </resources>
