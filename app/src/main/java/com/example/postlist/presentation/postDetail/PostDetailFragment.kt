@@ -2,6 +2,7 @@ package com.example.postlist.presentation.postDetail
 
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.fragment.navArgs
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -9,6 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.postlist.R
+import com.bumptech.glide.Glide
 import com.example.postlist.databinding.FragmentPostDetailBinding
 import com.example.postlist.presentation.base.BaseFragment
 import com.example.postlist.util.hideKeyboard
@@ -20,11 +22,19 @@ class PostDetailFragment :
     BaseFragment<FragmentPostDetailBinding>(FragmentPostDetailBinding::inflate) {
 
     private val viewModel: PostDetailViewModel by viewModels()
+    private val args: PostDetailFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        loadPostImage()
         setupActions()
         collectUiState()
+    }
+
+    private fun loadPostImage() {
+        Glide.with(binding.detailPostImage)
+            .load(args.imageUrl)
+            .into(binding.detailPostImage)
     }
 
     private fun setupActions() {

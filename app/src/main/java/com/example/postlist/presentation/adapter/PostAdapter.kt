@@ -10,7 +10,7 @@ import com.example.postlist.databinding.ItemPostBinding
 import com.example.postlist.domain.model.Post
 
 class PostAdapter(
-    private val onPostClick: ((Post) -> Unit)? = null
+    private val onPostClick: ((Post, String) -> Unit)? = null
 ) : ListAdapter<Post, PostAdapter.PostViewHolder>(PostDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
@@ -35,17 +35,24 @@ class PostAdapter(
             binding.postDescription.text = post.body
 
             Glide.with(binding.postImage)
-                .load("https://picsum.photos/300/300?random=$position&grayscale")
+                .load(imageUrl(position))
                 .circleCrop()
                 .into(binding.postImage)
 
             binding.root.setOnClickListener {
                 val currentPosition = bindingAdapterPosition
                 if (currentPosition != RecyclerView.NO_POSITION) {
-                    onPostClick?.invoke(getItem(currentPosition))
+                    onPostClick?.invoke(
+                        getItem(currentPosition),
+                        imageUrl(currentPosition)
+                    )
                 }
             }
         }
+    }
+
+    private fun imageUrl(position: Int): String {
+        return  "https://picsum.photos/300/300?random=$position&grayscale"
     }
 
     private object PostDiffCallback : DiffUtil.ItemCallback<Post>() {

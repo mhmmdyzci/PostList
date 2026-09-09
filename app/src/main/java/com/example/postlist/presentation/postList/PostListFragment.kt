@@ -21,9 +21,12 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class PostListFragment : BaseFragment<FragmentPostListBinding>(FragmentPostListBinding::inflate) {
     private val viewModel: PostListViewModel by viewModels()
-    private val postAdapter = PostAdapter { post ->
+    private val postAdapter = PostAdapter { post, imageUrl ->
         findNavController().navigateWithFade(
-            PostListFragmentDirections.actionPostListFragmentToPostDetailFragment(post.id)
+            PostListFragmentDirections.actionPostListFragmentToPostDetailFragment(
+                post.id,
+                imageUrl
+            )
         )
     }
 
