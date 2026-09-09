@@ -7,6 +7,11 @@
 
     <style name="Theme.PostList" parent="Base.Theme.PostList" />
 
+    <style name="PostListSwipeRefreshLayout">
+        <item name="colorAccent">@color/text_primary</item>
+        <item name="swipeRefreshLayoutProgressSpinnerBackgroundColor">@color/surface</item>
+    </style>
+
     <style name="TextAppearance.PostList.ScreenHeader" parent="TextAppearance.Material3.TitleLarge">
         <item name="android:textColor">@color/text_primary</item>
         <item name="android:textSize">22sp</item>
