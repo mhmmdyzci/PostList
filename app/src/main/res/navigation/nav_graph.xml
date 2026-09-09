@@ -35,6 +35,9 @@
         <argument
             android:name="postId"
             app:argType="integer" />
+        <argument
+            android:name="imageUrl"
+            app:argType="string" />
     </fragment>
 
 </navigation>

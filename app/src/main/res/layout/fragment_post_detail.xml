@@ -44,6 +44,26 @@
                 android:paddingEnd="20dp"
                 android:paddingBottom="24dp">
 
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/detailPostImageCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_marginBottom="24dp"
+                    app:cardBackgroundColor="@color/surface"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="@color/card_stroke"
+                    app:strokeWidth="1dp">
+
+                    <ImageView
+                        android:id="@+id/detailPostImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/post_image_content_description"
+                        android:scaleType="fitXY" />
+
+                </com.google.android.material.card.MaterialCardView>
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/titleInputLayout"
                     style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
