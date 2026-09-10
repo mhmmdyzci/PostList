@@ -46,6 +46,7 @@ android {
 dependencies {
     // AndroidX Core
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.splashscreen)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
@@ -80,7 +81,6 @@ dependencies {
     implementation(libs.androidx.swiperefreshlayout)
 
     // Lottie
-    implementation(libs.lottie)
 
     // Room — Local Database
     implementation(libs.room.runtime)

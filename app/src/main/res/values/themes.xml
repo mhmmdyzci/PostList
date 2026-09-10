@@ -1,11 +1,22 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.PostList" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowBackground">@color/screen_background</item>
+        <item name="android:statusBarColor">@color/screen_background</item>
+        <item name="android:navigationBarColor">@color/screen_background</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 
     <style name="Theme.PostList" parent="Base.Theme.PostList" />
+
+    <style name="Theme.PostList.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/screen_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <item name="windowSplashScreenIconBackgroundColor">@color/screen_background</item>
+        <item name="postSplashScreenTheme">@style/Theme.PostList</item>
+    </style>
 
     <style name="PostListSwipeRefreshLayout">
         <item name="colorAccent">@color/text_primary</item>
