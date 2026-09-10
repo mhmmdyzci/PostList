@@ -46,19 +46,17 @@ interface PostDao {
 
     @Transaction
     suspend fun syncPosts(remotePosts: List<PostEntity>) {
-        val localPosts = getAllPosts().associateBy { it.id }
-        val remoteIds = remotePosts.mapTo(mutableSetOf()) { it.id }
+        val localPosts = getAllPosts()
 
-        val postsToUpsert = remotePosts.map { remotePost ->
-            val localPost = localPosts[remotePost.id]
+        val postsToUpsert = mutableListOf<PostEntity>()
 
-            if (localPost?.isLocallyModified == true || localPost?.isDeleted == true) {
-                localPost
+        for (remotePost in remotePosts) {
+            val localPost = localPosts.find { it.id == remotePost.id }
+
+            if (localPost != null && (localPost.isLocallyModified || localPost.isDeleted)) {
+                postsToUpsert.add(localPost)
             } else {
-                remotePost.copy(
-                    isLocallyModified = false,
-                    isDeleted = false
-                )
+                postsToUpsert.add(remotePost.copy(isLocallyModified = false, isDeleted = false))
             }
         }
 
@@ -66,12 +64,11 @@ interface PostDao {
             insertPosts(postsToUpsert)
         }
 
-        localPosts.values
-            .filter { localPost ->
-                localPost.id !in remoteIds &&
-                    !localPost.isLocallyModified &&
-                    !localPost.isDeleted
+        for (localPost in localPosts) {
+            val existsInRemote = remotePosts.any { it.id == localPost.id }
+            if (!existsInRemote && !localPost.isLocallyModified && !localPost.isDeleted) {
+                permanentlyDeletePost(localPost.id)
             }
-            .forEach { localPost -> permanentlyDeletePost(localPost.id) }
+        }
     }
 }
