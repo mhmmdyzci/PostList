@@ -50,9 +50,9 @@ interface PostDao {
 
         val postsToUpsert = mutableListOf<PostEntity>()
 
-        for (remotePost in remotePosts) {
-            val localPost = localPosts.find { it.id == remotePost.id }
+        remotePosts.forEach { remotePost ->
 
+            val localPost = localPosts.find { it.id == remotePost.id }
             if (localPost != null && (localPost.isLocallyModified || localPost.isDeleted)) {
                 postsToUpsert.add(localPost)
             } else {
@@ -64,7 +64,9 @@ interface PostDao {
             insertPosts(postsToUpsert)
         }
 
-        for (localPost in localPosts) {
+
+        localPosts.forEach { localPost ->
+
             val existsInRemote = remotePosts.any { it.id == localPost.id }
             if (!existsInRemote && !localPost.isLocallyModified && !localPost.isDeleted) {
                 permanentlyDeletePost(localPost.id)
