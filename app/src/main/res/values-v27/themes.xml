@@ -1,0 +1,5 @@
+<resources>
+    <style name="Theme.PostList" parent="Base.Theme.PostList">
+        <item name="android:windowLightNavigationBar">false</item>
+    </style>
+</resources>
