@@ -5,9 +5,7 @@ import com.example.postlist.domain.model.Post
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-/**
- * Room'daki post listesini sürekli gözlemleyen UseCase.
- */
+
 class GetPostsUseCase @Inject constructor(
     private val repository: PostRepository
 ) {

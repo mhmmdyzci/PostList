@@ -8,15 +8,11 @@ import androidx.room.Transaction
 import com.example.postlist.data.local.entity.PostEntity
 import kotlinx.coroutines.flow.Flow
 
-/**
- * Room Data Access Object — posts tablosu için CRUD operasyonları.
- */
+
 @Dao
 interface PostDao {
 
-    /**
-     * Room tablosunu gözlemler. Her insert/update sonrasında yeni liste yayınlanır.
-     */
+
     @Query("SELECT * FROM posts WHERE isDeleted = 0 ORDER BY id")
     fun observePosts(): Flow<List<PostEntity>>
 
@@ -26,10 +22,7 @@ interface PostDao {
     @Query("SELECT * FROM posts")
     suspend fun getAllPosts(): List<PostEntity>
 
-    /**
-     * Post listesini tabloya ekler.
-     * REPLACE stratejisi: aynı id varsa üzerine yazar (güncelleme gibi davranır).
-     */
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertPosts(posts: List<PostEntity>)
 

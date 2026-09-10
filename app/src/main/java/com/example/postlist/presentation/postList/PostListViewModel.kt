@@ -81,7 +81,5 @@ class PostListViewModel @Inject constructor(
         }
     }
 
-    fun clearError() {
-        _uiState.update { it.copy(errorMessage = null) }
-    }
+
 }
