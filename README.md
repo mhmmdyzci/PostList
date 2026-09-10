@@ -21,10 +21,7 @@ The application is written in Kotlin and structured around Clean Architecture, M
 - Updating post titles and descriptions on the detail screen
 - Persisting user updates in Room
 - Type-safe navigation with Navigation Component and Safe Args
-- Grayscale Picsum images for each post
-- Image loading and caching with Glide
-- Dark theme with a Material-based responsive UI
-- AndroidX SplashScreen support for app launch
+
 
 ### Technologies
 
@@ -83,10 +80,6 @@ Uygulama Kotlin ile yazılmış ve Clean Architecture, MVVM ve repository patter
 - Post detay ekranında başlık ve açıklama güncelleme
 - Güncellenen içeriklerin Room üzerinde korunması
 - Navigation Component ve Safe Args ile tip güvenli navigation
-- Her post için Picsum üzerinden grayscale görsel gösterimi
-- Glide ile görsel yükleme ve cache desteği
-- Koyu tema ve Material tabanlı responsive UI
-- AndroidX SplashScreen ile uygulama başlangıç ekranı
 
 ### Kullanılan Teknolojiler
 
